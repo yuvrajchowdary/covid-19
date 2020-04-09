@@ -1,516 +1,505 @@
-  <!DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html>
 
-  <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebasneueregular" type="text/css" />
-      <style>
-          body {
-              font-family: 'BebasNeueRegular';
-              font-weight: normal;
-              font-style: normal;
-          }
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebasneueregular" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-          .dropbtn {
-              background-color: #00bcd4;
-              color: white;
-              padding: 16px;
-              font-size: 16px;
-              border: none;
-              width: 200px;
-          }
+<body>
+    <h1>Covid-19 Test Centers</h1>
+    <table style="width:100%">
+        <tr>
+            <th><h2>Choose center</h2></th>
+            <th><h2>Map</h2></th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="tg()">Telangana</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/7358663506">Gandhi Hospital</a>
+                                    <a href="https://www.openstreetmap.org/relation/10429489
+                ">Osmania Medical College, Hyderabad</a>
+                                    <a href="https://www.openstreetmap.org/way/354038742#map=18/17.44502/78.47300&layers=N
+                ">Sir Ronald Ross of Tropical & Communicable Diseases, Hyderabad.</a>
+                                    <a href="https://www.openstreetmap.org/relation/5330163">Nizam’s Institute of
+                                        Medical
+                                        Sciences, Hyderabad</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="ap()">Andhra Pradesh</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+            ">Sri Venkateshwara Institute of medical sciences,Tirupathi</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+            ">Rangarayya Medical College , Kakinada</a>
+                                    <a href="https://www.openstreetmap.org/relation/6272547
+            ">Siddhartah Medical College , vijayawada</a>
+                                    <a href="https://www.openstreetmap.org/note/2152271
+            ">Govt. Medical College, Ananthpur</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="as()">Assam</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                ">Gauhati Medical College, Guwahati</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                ">Regional Medical Research Center, Dibrugarh</a>
+                                    <a href="https://www.openstreetmap.org/relation/6272547
+                ">Jorhat Medical College, Jorhat</a>
+                                    <a href="https://www.openstreetmap.org/note/2152271
+                ">Silchar Medical College, Silchar</a>
+                                </div>
+                            </div>
+                        </td>
+                    <tr>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="bh()">Bihar</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  ">
+                                        Rajendra Memorial Research Institute of Medical Sciences, Patna</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                  ">Indira Gandhi Institute Medical Sciences, Patna</a>
 
-          .dropdown {
-              position: relative;
-              display: inline-block;
-          }
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="ch()">Chandigarh</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                ">Post Graduate Institute of Medical Education & Research, Chandigarh</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                ">Govt. Medical College, Chandigarh</a>
 
-          .dropdown-content {
-              display: none;
-              position: absolute;
-              background-color: #f1f1f1;
-              min-width: 160px;
-              box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-              z-index: 1;
-          }
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="cha()">Chattisgarh</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                ">All India Institute of Medical Sciences, Raipur</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                ">Late Baliram Kashyap M Govt. Medical College, Jagdalpur</a>
 
-          .dropdown-content a {
-              color: black;
-              padding: 12px 16px;
-              text-decoration: none;
-              display: block;
-          }
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="dl()">Delhi</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                ">All India Institute Medical Sciences</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                ">Lady Hardinge Medical College</a>
+                                    <a href="https://www.openstreetmap.org/relation/6272547
+                ">JNational Centre for Disease Control</a>
+                                    <a href="https://www.openstreetmap.org/note/2152271
+                ">Ram Manohar Lohia Hospital</a>
+                                    <a href="https://www.openstreetmap.org/relation/6272547
+              ">Institute of Liver & Biliary Sciences</a>
+                                    <a href="https://www.openstreetmap.org/note/2152271
+              ">Army Hospital Research & Referral</a>
+                                </div>
+                            </div>
 
-          .dropdown-content a:hover {
-              background-color: #ddd;
-          }
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="gj()">Gujarat</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                ">BJ Medical College, Ahmedabad</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                ">MP Shah Govt Medical College, Jamnagar</a>
+                                    <a href="https://www.openstreetmap.org/relation/6272547
+                ">Govt. Medical College, Surat</a>
+                                    <a href="https://www.openstreetmap.org/note/2152271
+                ">Govt. Medical College, Bhavnagar</a>
+                                    <a href="https://www.openstreetmap.org/relation/6272547
+              ">Govt. Medical College, Vadodara</a>
 
-          .dropdown:hover .dropdown-content {
-              display: block;
-          }
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="hr()">Haryana</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                "> Pt. B.D. Sharma Post Graduate Inst. of Med. Sciences, Rohtak, Haryana</a>
+                                    <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                ">BPS Govt. Medical College, Sonipat</a>
 
-          .dropdown:hover .dropbtn {
-              background-color: #b2ebf2;
-          }
-      </style>
-  </head>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
 
-  <body>
-      <h2>Covid-19 Test Centers</h2>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="od()">Odisha</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  "> Regional Medical Research Centre, Bhubaneshwar</a>
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                "> All India Institute of Medical Sciences, Bhubaneshwar</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="pd()">Puducherry</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  "> Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry
 
-      <table>
-          <tr>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Telangana</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/7358663506">Gandhi Hospital</a>
-                          <a href="https://www.openstreetmap.org/relation/10429489
-          ">Osmania Medical College, Hyderabad</a>
-                          <a href="https://www.openstreetmap.org/way/354038742#map=18/17.44502/78.47300&layers=N
-          ">Sir Ronald Ross of Tropical & Communicable Diseases, Hyderabad.</a>
-                          <a href="https://www.openstreetmap.org/relation/5330163">Nizam’s Institute of Medical
-                              Sciences, Hyderabad</a>
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Andhra Pradesh</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-      ">SVIMS,Tirupathi</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-      ">Rangarayya Medical College , Kakinada</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-      ">Siddhartah Medical College , vijayawada</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-      ">Govt. Medical College, Ananthpur</a>
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Assam</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          ">Gauhati Medical College, Guwahati</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-          ">Regional Medical Research Center, Dibrugarh</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">Jorhat Medical College, Jorhat</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-          ">Silchar Medical College, Silchar</a>
-                      </div>
-                  </div>
-              </td>
-              <tr>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Bihar</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            ">
-                              Rajendra Memorial Research Institute of Medical Sciences, Patna</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-            ">Indira Gandhi Institute Medical Sciences, Patna</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="dropbtn" onclick="pb()">Punjab</button>
+                                <div class="dropdown-content">
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  "> Govt. Medical College, Amritsar
 
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Chandigarh</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          ">Post Graduate Institute of Medical Education & Research, Chandigarh</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-          ">Govt. Medical College, Chandigarh</a>
+                                    </a>
+                                    <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                ">Govt. Medical College, Patiala
 
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Chattisgarh</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          ">All India Institute of Medical Sciences, Raipur</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-          ">Late Baliram Kashyap M Govt. Medical College, Jagdalpur</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
 
-                      </div>
-                  </div>
-              </td>
-              </tr>
-              <tr>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Delhi</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          ">All India Institute Medical Sciences</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-          ">Lady Hardinge Medical College</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">JNational Centre for Disease Control</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-          ">Ram Manohar Lohia Hospital</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-        ">Institute of Liver & Biliary Sciences</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-        ">Army Hospital Research & Referral</a>
-                      </div>
-                  </div>
+                    </tr>
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="rj()">Rajasthan</button>
+                            <div class="dropdown-content">
+                                <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  ">Sawai Man Singh Medical College, Jaipur</a>
+                                <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                  ">Dr. Sampurnanand Medical College, Jodhpur</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                  ">Jhalawar Medical College, Jhalawar</a>
+                                <a href="https://www.openstreetmap.org/note/2152271
+                  ">RNT Medical College, Udaipur</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                ">SP Medical College, Bikaner</a> <a href="https://www.openstreetmap.org/note/2152271
+                ">All India Institute of Medical Sciences, Jodhpur</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                ">
+                                    JLN Medical College, Ajmer</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                "> Govt. Medical College, Kota</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="tn()">Tamil Nadu</button>
+                            <div class="dropdown-content">
+                                <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  ">King Institute of Preventive Medicine & Research, Chennai</a>
+                                <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                  ">Madras Medical College, Chennai</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                  ">Govt. Theni Medical College, Theni</a>
+                                <a href="https://www.openstreetmap.org/note/2152271
+                  ">Tirunelveli Medical College, Tirunelveli</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                ">Govt. Medical College, Thiruvarur</a> <a href="https://www.openstreetmap.org/note/2152271
+                ">
+                                    Kumar Mangalam Govt. Medical College, Salem</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                ">
+                                    Coimbatore Medical College, Coimbatore</a>
 
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Gujarat</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          ">BJ Medical College, Ahmedabad</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-          ">MP Shah Govt Medical College, Jamnagar</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">Govt. Medical College, Surat</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-          ">Govt. Medical College, Bhavnagar</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-        ">Govt. Medical College, Vadodara</a>
+                            </div>
+                        </div>
 
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Haryana</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          "> Pt. B.D. Sharma Post Graduate Inst. of Med. Sciences, Rohtak, Haryana</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-          ">BPS Govt. Medical College, Sonipat</a>
-
-                      </div>
-                  </div>
-              </td>
-          </tr>
-          <tr>
-              <td>
-
-                  <div class="dropdown">
-                      <button class="dropbtn">Odisha</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            "> Regional Medical Research Centre, Bhubaneshwar</a>
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          "> All India Institute of Medical Sciences, Bhubaneshwar</a>
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Puducherry</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            "> Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry
-
-                          </a>
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Punjab</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            "> Govt. Medical College, Amritsar
-
-                          </a>
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          ">Govt. Medical College, Patiala
-
-                          </a>
-                      </div>
-                  </div>
-              </td>
-            
-                  </tr>
-                  <td>
- <div class="dropdown">
-                      <button class="dropbtn">Rajasthan</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            ">Sawai Man Singh Medical College, Jaipur</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-            ">Dr. Sampurnanand Medical College, Jodhpur</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-            ">Jhalawar Medical College, Jhalawar</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-            ">RNT Medical College, Udaipur</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">SP Medical College, Bikaner</a> <a href="https://www.openstreetmap.org/note/2152271
-          ">All India Institute of Medical Sciences, Jodhpur</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">
-                              JLN Medical College, Ajmer</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          "> Govt. Medical College, Kota</a>
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Tamil Nadu</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            ">King Institute of Preventive Medicine & Research, Chennai</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-            ">Madras Medical College, Chennai</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-            ">Govt. Theni Medical College, Theni</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-            ">Tirunelveli Medical College, Tirunelveli</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">Govt. Medical College, Thiruvarur</a> <a href="https://www.openstreetmap.org/note/2152271
-          ">
-                              Kumar Mangalam Govt. Medical College, Salem</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">
-                              Coimbatore Medical College, Coimbatore</a>
-
-                      </div>
-                  </div>
-
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Uttar Pradesh</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            ">King George Medical University, Lucknow</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-            ">
-                              Institute of Medical Sciences, Banaras Hindu University, Varanasi</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-            ">Jawaharlal Nehru Medical College, Aligarh</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-            ">Command Hospital, Lucknow</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">Lala Lajpat Rai Memorial Medical College, Meerut</a> <a href="https://www.openstreetmap.org/note/2152271
-          ">
-                              Sanjay Gandhi Post Graduate Institute, Lucknow, Uttar Pradesh</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">
-                              RIMS, Saifai</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-          ">
-                              Regional Medical Research Centre, Gorakhpur</a>
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="up()">Uttar Pradesh</button>
+                            <div class="dropdown-content">
+                                <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  ">King George Medical University, Lucknow</a>
+                                <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+                  ">
+                                    Institute of Medical Sciences, Banaras Hindu University, Varanasi</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                  ">Jawaharlal Nehru Medical College, Aligarh</a>
+                                <a href="https://www.openstreetmap.org/note/2152271
+                  ">Command Hospital, Lucknow</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                ">Lala Lajpat Rai Memorial Medical College, Meerut</a> <a href="https://www.openstreetmap.org/note/2152271
+                ">
+                                    Sanjay Gandhi Post Graduate Institute, Lucknow, Uttar Pradesh</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                ">
+                                    RIMS, Saifai</a>
+                                <a href="https://www.openstreetmap.org/relation/6272547
+                ">
+                                    Regional Medical Research Centre, Gorakhpur</a>
 
 
-                      </div>
-                  </div>
-              </td>
-            </tr>
-            <tr>
-                <td>
+                            </div>
+                        </div>
+                    </td>
+        </tr>
+        <tr>
+            <td>
 
-                  <div class="dropdown">
-                      <button class="dropbtn">Uttarakhand</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            "> Govt. Medical College, Haldwani
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="uk()">Uttarakhand</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  "> Govt. Medical College, Haldwani
 
-                          </a>
-                      </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">West Bengal</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            "> National Institute of Cholera & Enteric Diseases, Kolkata
+                        </a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="wb()">West Bengal</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  "> National Institute of Cholera & Enteric Diseases, Kolkata
 
-                          </a>
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            "> Institute of Post Graduate Medical Education & Research, Kolkata
+                        </a>
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  "> Institute of Post Graduate Medical Education & Research, Kolkata
 
-                          </a>
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          "> Midnapore Medical College, Midnapore
+                        </a>
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                "> Midnapore Medical College, Midnapore
 
-                          </a>
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-          "> North Bengal Medical College, Darjeeling
+                        </a>
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                "> North Bengal Medical College, Darjeeling
 
-                          </a>
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Andaman & Nicobar</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-            "> Regional Medical Research Centre, Port Blair
-                          </a>
-                      </div>
-                  </div>
-              </td>
+                        </a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="an()">Andaman & Nicobar</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+                  "> Regional Medical Research Centre, Port Blair
+                        </a>
+                    </div>
+                </div>
+            </td>
 
-          </tr>
-          <tr>
-               <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Himachal Pradesh</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  "> Indira Gandhi Medical College, Shimla</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Dr. Rajendra Prasad Govt. Medical College, Tanda</a>
+        </tr>
+        <tr>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="hp()">Himachal Pradesh</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        "> Indira Gandhi Medical College, Shimla</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Dr. Rajendra Prasad Govt. Medical College, Tanda</a>
 
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Jammu & Kashmir </button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  ">Govt. Medical College, Jammu</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Command Hospital (NC) Udhampur</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-  ">Sher-i-Kashmir Institute of Medical Sciences, Srinagar</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-  ">Govt. Medical College, Srinagar</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="jk()">Jammu & Kashmir </button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        ">Govt. Medical College, Jammu</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Command Hospital (NC) Udhampur</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">Sher-i-Kashmir Institute of Medical Sciences, Srinagar</a>
+                        <a href="https://www.openstreetmap.org/note/2152271
+        ">Govt. Medical College, Srinagar</a>
 
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Jharkhand</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  "> MGM Medical College & Hospital, Jamshedpur</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Rajendra Institute of Medical Sciences, Ranchi</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="jd()">Jharkhand</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        "> MGM Medical College & Hospital, Jamshedpur</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Rajendra Institute of Medical Sciences, Ranchi</a>
 
-                      </div>
-                  </div>
-              </td>
-              <tr>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Karnataka</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  ">Hassan Inst. of Med. Sciences, Hassan</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Mysore Medical College & Research Institute, Mysore</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-  ">Shimoga Instt. of Medical Sciences, Shivamoga Inst. of Med. Sciences, Shivamogga</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-  ">Command Hospital (Air Force) Bengaluru</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-">Bangalore Medical College & Research Institute, Bengaluru -1400 samples can be tested</a> <a href="https://www.openstreetmap.org/note/2152271
-">Gulbarga Institute of Medical Sciences, Gulbarga </a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-">National Institute of Virology, Bangalore Field Unit, Bengaluru -400 samples can be tested</a>
+                    </div>
+                </div>
+            </td>
+        <tr>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="kr()">Karnataka</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        ">Hassan Inst. of Med. Sciences, Hassan</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Mysore Medical College & Research Institute, Mysore</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">Shimoga Instt. of Medical Sciences, Shivamoga Inst. of Med. Sciences, Shivamogga</a>
+                        <a href="https://www.openstreetmap.org/note/2152271
+        ">Command Hospital (Air Force) Bengaluru</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">Bangalore Medical College & Research Institute, Bengaluru -1400 samples can be tested</a> <a href="https://www.openstreetmap.org/note/2152271
+        ">Gulbarga Institute of Medical Sciences, Gulbarga </a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">National Institute of Virology, Bangalore Field Unit, Bengaluru -400 samples can be tested</a>
 
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Kerala</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  ">National Institute of Virology Field Unit, Allapuzzha</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Govt. Medical College, Thiruvanathapuram</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-  ">Govt. Medical College, Kozhikode</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-  ">Govt. Medical College, Thrissur</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-">Rajiv Gandhi Center for Biotechnology, Thiruvanathapuram</a> <a href="https://www.openstreetmap.org/note/2152271
-">Sree Chitra Tirunal Institute of Medical Sciences, Thiruvanathapuram </a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-">State Public Health Laboratory, Trivandrum</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-"> Interuniversity, Kottayam</a>
-                      </div>
-                  </div>
-              </td>
-              <td>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="kl()">Kerala</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        ">National Institute of Virology Field Unit, Allapuzzha</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Govt. Medical College, Thiruvanathapuram</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">Govt. Medical College, Kozhikode</a>
+                        <a href="https://www.openstreetmap.org/note/2152271
+        ">Govt. Medical College, Thrissur</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">Rajiv Gandhi Center for Biotechnology, Thiruvanathapuram</a> <a href="https://www.openstreetmap.org/note/2152271
+        ">Sree Chitra Tirunal Institute of Medical Sciences, Thiruvanathapuram </a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">State Public Health Laboratory, Trivandrum</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        "> Interuniversity, Kottayam</a>
+                    </div>
+                </div>
+            </td>
+            <td>
 
-                  <div class="dropdown">
-                      <button class="dropbtn">Maharashtra</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  ">National Institute of Virology, Pune</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Seth GS Medical College & KEM Hospital, Mumbai</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-  ">Kasturba Hospital for Infectious Diseases, Mumbai</a>
-                          <a href="https://www.openstreetmap.org/note/2152271
-  ">National Institute of Virology Field Unit, Mumbai</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-">Armed Forces Medical College, Pune</a> <a href="https://www.openstreetmap.org/note/2152271
-">BJ Medical College, Pune</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-">
-                              Indira Gandhi Govt. Medical College, Nagpur</a>
-                          <a href="https://www.openstreetmap.org/relation/6272547
-"> Grant Medical College & Sir JJ Hospital, Mumbai</a>
-                      </div>
-                  </div>
-              </td>
-              <tr>
-              <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="mh()">Maharashtra</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        ">National Institute of Virology, Pune</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Seth GS Medical College & KEM Hospital, Mumbai</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">Kasturba Hospital for Infectious Diseases, Mumbai</a>
+                        <a href="https://www.openstreetmap.org/note/2152271
+        ">National Institute of Virology Field Unit, Mumbai</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">Armed Forces Medical College, Pune</a> <a href="https://www.openstreetmap.org/note/2152271
+        ">BJ Medical College, Pune</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        ">
+                            Indira Gandhi Govt. Medical College, Nagpur</a>
+                        <a href="https://www.openstreetmap.org/relation/6272547
+        "> Grant Medical College & Sir JJ Hospital, Mumbai</a>
+                    </div>
+                </div>
+            </td>
+        <tr>
+            <td>
 
-                  <div class="dropdown">
-                      <button class="dropbtn">Madhya Pradesh</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  "> All India Institute of Medical Sciences, Bhopal</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">National Institute for Research on Tribal Health, Jabalpur</a>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="mp()">Madhya Pradesh</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        "> All India Institute of Medical Sciences, Bhopal</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">National Institute for Research on Tribal Health, Jabalpur</a>
 
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  "> Mahatma Gandhi Memorial Medical College, Indore</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Gandhi Medical College, Bhopal</a>
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        "> Mahatma Gandhi Memorial Medical College, Indore</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Gandhi Medical College, Bhopal</a>
 
-                      </div>
-                  </div>
-              </td>
-              <td>
+                    </div>
+                </div>
+            </td>
+            <td>
 
-                  <div class="dropdown">
-                      <button class="dropbtn">Manipur</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  "> Jawaharlal Nehru Institute of Med. Sciences, ImphalEast, Manipur</a>
-                          <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
-  ">Regional Institute of Medical Sciences, Imphal</a>
-                      </div>
-                  </div>
-              </td>
-              <td>
-                  <div class="dropdown">
-                      <button class="dropbtn">Meghalaya</button>
-                      <div class="dropdown-content">
-                          <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
-  "> North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences, Shillong, Meghalaya</a>
-                      </div>
-                  </div>
-              </td>
-          </tr>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="mr()">Manipur</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        "> Jawaharlal Nehru Institute of Med. Sciences, ImphalEast, Manipur</a>
+                        <a href="https://www.openstreetmap.org/way/749671007#map=19/16.97850/82.23741
+        ">Regional Institute of Medical Sciences, Imphal</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="mg()">Meghalaya</button>
+                    <div class="dropdown-content">
+                        <a href="https://www.openstreetmap.org/node/2450419099#map=19/13.64257/79.40643
+        "> North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences, Shillong, Meghalaya</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </td>
+    <td>
+        <!-- map -->
+        <div id='ui'>
+            <button id='locate'>
+                Find my location
+            </button>
 
-  </body>
+            <button id='find-nearest'>
+                Find my Covid-19 Test center.
+            </button>
+        </div>
+<br>
+        <div id="map" style="width: 600px; height: 400px;border-style: double;"></div>
 
-  </html>
+
+
+
+
+    </td>
+    </tr>
+
+
+    </table>
+
+</body>
+<script src="script.js"></script>
+<script src="sample-geojson.js" type="text/javascript"></script>
+
+
+</html>
