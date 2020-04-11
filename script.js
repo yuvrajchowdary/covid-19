@@ -1,9 +1,3 @@
-var map = L.map("map").setView([20.5937, 78.9629], 4);
-mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "&copy; " + mapLink + " Contributors",
-  maxZoom: 18,
-}).addTo(map);
 
 function tg() {
   var telangana = [
@@ -375,27 +369,3 @@ function an() {
        .addTo(map.setView([130.7088, 76.7805], 6));
    }
  }
-
-
-//my-location
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    document.getElementById("map").innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-   var coords = [
-      ["Your location", position.coords.latitude,position.coords.longitude],
-      
- 
-    ];
-    for (var i = 0; i < coords.length; i++) {
-      marker = new L.marker([coords[i][1], coords[i][2]])
-        .bindPopup(coords[i][0])
-        .addTo(map.setView([position.coords.latitude,position.coords.longitude], 6));
-    }
-}
-
