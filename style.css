@@ -7,7 +7,9 @@
     border: none;
     width: 250px;
 }
-
+button:active, input[type="button"]:active {
+    outline: none;
+}
 
 #ui button:hover {
     background-color: #d66b6481;
