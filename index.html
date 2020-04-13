@@ -240,7 +240,7 @@
         <!-- map -->
         <div id='ui'>
             <button onclick="getNearestCenter()">Get Nearest Center</button>
-
+<label>[click on icon for Center name]</label>
         </div>
         <br>
         <div id="map" style="width: 600px; height: 400px;border-style: double;"></div>
@@ -255,6 +255,9 @@
 
     </table>
 <hr>
+<section style="margin-left: auto;
+margin-right: auto;width: fit-content;">
+<h2>3 Test centers in your location</h2>
     <table border="1">
         <tr>
             <th style="color: green;">Near</th>
@@ -270,6 +273,7 @@
         </tr>
     </table>
     <hr>
+</section>
 </body>
 <script src="script.js"></script>
 <script src="healthCenters.js"></script>
@@ -278,7 +282,8 @@
         center: [17.387140, 78.491684],
         zoom: 15,
         scrollWheelZoom: true,
-        closePopupOnClick: false
+        closePopupOnClick: false,
+        popupOpen:true
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -294,7 +299,9 @@
         const healthCenter = healthCenters[i];
         L.marker([healthCenter[1], healthCenter[2]], {
             icon: markerIcon
-        }).bindPopup(healthCenter[0]).addTo(map);
+        }).bindPopup(healthCenter[0])
+          .addTo(map);
+
 
 
 
@@ -310,6 +317,8 @@
                 })
                 .bindPopup("Your Location")
                 .addTo(map);
+                
+
             map.setView(userCoOrds, 9);
             // Calculate distances
             let distances = [];
