@@ -77,5 +77,5 @@ body {
     background-color:  rgb(206, 76, 76);
 }
 #header-e1 {float: left;}
-#header-e2 {overflow: hidden;}
+#header-e2 {overflow: hidden;font-size:40px;}
 #header-e3 {float: right;}

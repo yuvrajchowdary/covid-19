@@ -26,9 +26,9 @@
             </div>
         </div>
         <div id="header-e3">
-
-            <a class="active" href="#home">Home</a>
-            <a href="#about">About</a>        </div>
+            <button class="dropbtn"><a href="../index.html" style="text-decoration: none;color: white;">Home</a></button>
+            <button class="dropbtn"><a href="../index.html" style="text-decoration: none;color: white;">About</a></button>
+    
            
         </div>
         <div id="header-e2">
@@ -254,7 +254,7 @@
 
 
     </table>
-
+<hr>
     <table border="1">
         <tr>
             <th style="color: green;">Near</th>
@@ -269,6 +269,7 @@
             <td id="Red"></td>
         </tr>
     </table>
+    <hr>
 </body>
 <script src="script.js"></script>
 <script src="healthCenters.js"></script>
@@ -277,6 +278,7 @@
         center: [17.387140, 78.491684],
         zoom: 15,
         scrollWheelZoom: true,
+        closePopupOnClick: false
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -293,6 +295,10 @@
         L.marker([healthCenter[1], healthCenter[2]], {
             icon: markerIcon
         }).bindPopup(healthCenter[0]).addTo(map);
+
+
+
+        
     }
 
     function getNearestCenter() {
