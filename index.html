@@ -4,7 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="leaflet.css" />
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
     <script src="leaflet.js"></script>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebasneueregular" type="text/css" />
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -41,225 +42,63 @@
             
         </div>
     </section>
+    <div class="container">
+<br>
 
-    <table style="width:100%">
-        <tr>
-            <th>
-                <h2>Search by State</h2>
-            </th>
-            <th>
-            </th>
-        </tr>
-        <tr>
-            <td>
-                <table>
-                    <tr>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="tg()">Telangana</button>
-
-                            </div>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="ap()">Andhra Pradesh</button>
-
-                            </div>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="as()">Assam</button>
-
-                            </div>
-                        </td>
-                    <tr>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="bh()">Bihar</button>
-
-                            </div>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="ch()">Chandigarh</button>
-
-                            </div>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="cha()">Chattisgarh</button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="dl()">Delhi</button>
-
-                            </div>
-
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="gj()">Gujarat</button>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="hr()">Haryana</button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="od()">Odisha</button>
-
-                            </div>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="pd()">Puducherry</button>
-
-                            </div>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="dropbtn" onclick="pb()">Punjab</button>
-
-                            </div>
-                        </td>
-
-                    </tr>
-                    <td>
-                        <div class="dropdown">
-                            <button class="dropbtn" onclick="rj()">Rajasthan</button>
-
-                        </div>
-                    </td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="dropbtn" onclick="tn()">Tamil Nadu</button>
-
-                        </div>
-
-                    </td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="dropbtn" onclick="up()">Uttar Pradesh</button>
-
-                        </div>
-                    </td>
-        </tr>
-        <tr>
-            <td>
-
+  </select>
+    <table style="width:100%" >
                 <div class="dropdown">
-                    <button class="dropbtn" onclick="uk()">Uttarakhand</button>
-
+                    <button class="dropbtn" >Search by state</a></button>
+                    <div class="dropdown-content">
+                        <option onclick="tg()">Telangana</option>
+                        <a onclick="ap()">Andhra Pradesh</a>
+                        <a onclick="as()">Assam</a>
+                        <a onclick="bh()">Bihar</a>
+                        <a onclick="ch()">Chandigarh</a>
+                        <a onclick="cha()">Chattisgarh</a>
+                        <a onclick="dl()">Delhi</a>
+                        <a onclick="gj()">Gujarat</a>
+                        <a onclick="hr()">Haryana</a>
+                        <a onclick="od()">Odisha</a>
+                        <a onclick="pd()">Puducherry</a>
+                        <a onclick="pb()">Punjab</a>
+                        <a onclick="rj()">Rajasthan</a>
+                        <a onclick="tn()">Tamil Nadu</a>
+                        <a onclick="up()">Uttar Pradesh</a>
+                        <a onclick="uk()">Uttarakhand</a>
+                        <a onclick="wb()">West Bengal</a>
+                        <a onclick="an()">Andaman & Nicobar</a>
+                        <a onclick="hp()">Himachal Pradesh</a>
+                        <a onclick="jk()">Jammu & Kashmir </a>
+                        <a onclick="jd()">Jharkhand</a>
+                        <a onclick="kr()">Karnataka</a>
+                        <a onclick="kl()">Kerala</a>
+                        <a onclick="mh()">Maharashtra</a>
+                        <a onclick="mp()">Madhya Pradesh</a>
+                        <a onclick="mr()">Manipur</a>
+                        <a onclick="mg()">Meghalaya</a>
+                    </div>
                 </div>
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="wb()">West Bengal</button>
-
-                </div>
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="an()">Andaman & Nicobar</button>
-
-                </div>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="hp()">Himachal Pradesh</button>
-
-                </div>
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="jk()">Jammu & Kashmir </button>
-
-                </div>
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="jd()">Jharkhand</button>
-
-                </div>
-            </td>
-        <tr>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="kr()">Karnataka</button>
-
-                </div>
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="kl()">Kerala</button>
-
-                </div>
-            </td>
-            <td>
-
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="mh()">Maharashtra</button>
-
-                </div>
-            </td>
-        <tr>
-            <td>
-
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="mp()">Madhya Pradesh</button>
-
-                </div>
-            </td>
-            <td>
-
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="mr()">Manipur</button>
-
-                </div>
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="mg()">Meghalaya</button>
-
-                </div>
-            </td>
-        </tr>
-    </table>
-    </td>
-    <td>
-        <!-- map -->
-        <div id='ui'>
-            <button onclick="getNearestCenter()">Get Nearest Center</button>
-<label>[click on icon for Center name]</label>
-        </div>
-        <br>
-        <div id="map" style="width: 600px; height: 400px;border-style: double;"></div>
-
-
-
-
-
-    </td>
-    </tr>
-
-
-    </table>
+           
+          
+          <br>
+          <br>
+                <!-- map -->
+            <div id='ui'>
+                <button onclick="getNearestCenter()">Get Nearest Center</button>
+    <label>[click on icon for Center name]</label>
+            </div>
+            <br>
+            <div id="map" style="width: 600px; height: 400px;border-style: double;"></div>
+    
+    
+    
+    
+    
+        
+         
 <hr>
-<section style="margin-left: auto;
-margin-right: auto;width:30%;">
+<section>
 <h2>3 Test centers in your location</h2>
     <table border="1">
         <tr>
@@ -276,6 +115,7 @@ margin-right: auto;width:30%;">
         </tr>
     </table>
     <hr>
+</div>
 </section>
 </body>
 <script src="script.js"></script>

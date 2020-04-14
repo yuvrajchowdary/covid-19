@@ -369,3 +369,4 @@ function an() {
        .addTo(map.setView([130.7088, 76.7805], 6));
    }
  }
+
